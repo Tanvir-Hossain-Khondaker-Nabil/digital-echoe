@@ -30,7 +30,8 @@ const Header = () => {
 
   return (
     <>
-      <header style={{ height: "700px" }} className="header-normal h-100-v v-dark-head header-corporate section-padding dsn-header-animation d-flex flex-column align-items-center justify-content-center">
+      <header style={{ height: "700px" }} className="header-normal h-100-v v-dark-head header-corporate section-padding dsn-header-animation d-flex flex-column align-items-center justify-content-center"
+      style={{opacity:"1"}}>
         <div
           className="box-img  w-100  p-absolute top-0 right-0 before-z-index dsn-hero-parallax-img"
           data-overlay="7"

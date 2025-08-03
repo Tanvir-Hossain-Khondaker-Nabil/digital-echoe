@@ -97,16 +97,17 @@ export default function SingleService() {
                                                 </div>
                                                 <div className="post-content background-section z-index-1 d-flex flex-column">
                                                     <div className="post-info d-flex justify-content-between align-items-center p-20">
-                                                        <div className="cat d-flex p-0">
-                                                             <Link to={`/service_category/${service.id}`}>
-                                                                <span  className="background-main heading-color">UX / UI Design</span>                                                                
-                                                            </Link>
-                                                        </div>
                                                         <h2 className="post-title word-wrap d-inline-block title-block text-upper">
                                                             <a className="effect-ajax init-color">
                                                                 {service.title}
                                                             </a>
                                                         </h2>
+                                                        <div className="cat d-flex p-0">
+                                                             <Link to={`/service_category/${service.service_category_id}`}>
+                                                                <span  className="background-main heading-color">{service.categories.string}</span>                                                                
+                                                            </Link>
+                                                        </div>
+                                                        
                                                     </div>
                                                     <div className="post-description p-20" dangerouslySetInnerHTML={{ __html: service.description }} />
                                                 </div>

@@ -143,28 +143,13 @@ export default function ServiceCategory() {
                                         </AnimatedText>
                                     </div>
                                 </div>
-                                <div className="container" style={{ paddingBottom: "500px" }}>
-                                    <div
-                                        className="dsn-posts dsn-post-type-cards box-image-normal d-grid grid-md-2 dsn-isotope use-filter v-dark-head"
-                                        style={{
-                                            "--grid-gap": "30px",
-                                            "--grid-gap-col": "30px",
-                                            "--grid-gap-row": "30px",
-                                            gap: "30px",
-                                            height: "fit-to-content",
-                                            position: "relative",
-                                        }}>
+                                <div className="container">
+                                    <div  style={{display:"flex", gap:"23px", flexWrap:"wrap"}}>
                                         {services.map((service, index) => (
                                             <Link
                                                 to={`/service/${service.id}`}
                                                 key={service.id}
-                                                className="dsn-item-post grid-item over-hidden p-relative has-border-radius fashion"
-                                                style={{
-                                                    left: "0px",
-                                                    position: "absolute",
-                                                    top: `${index * 400}px`,
-                                                    height: "auto",
-                                                }}>
+                                                style={{width:"49%",marginTop:"30px"}}>
                                                 <div className="box-content">
                                                     <div className="w-100">
                                                         <div className="box-image w-100 h-350 over-hidden before-z-index dsn-swiper-parallax-transform p-relative">
@@ -175,13 +160,13 @@ export default function ServiceCategory() {
                                                             />
                                                         </div>
                                                     </div>
-                                                    <div className="post-content background-section z-index-1 d-flex flex-column">
+                                                    <div className="post-content background-section z-index-1 d-flex flex-column" style={{background:"#1a1a1a"}}>
                                                         <div className="post-info d-flex justify-content-between align-items-center p-20">
-                                                            <div className="cat d-flex p-0">
+                                                            {/* <div className="cat d-flex p-0">
                                                                 <span className="background-main heading-color">
-                                                                    UX / UI Design
+                                                                    {service.categories.string}
                                                                 </span>
-                                                            </div>
+                                                            </div> */}
                                                             <h2 className="post-title word-wrap d-inline-block title-block text-upper">
                                                                 <a className="effect-ajax init-color">
                                                                     {service.title}
