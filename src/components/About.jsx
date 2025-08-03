@@ -37,13 +37,16 @@ const About = () => {
             <div className="container">
                 <div className="d-grid grid-lg-2">
                     <div className="box-text p-relative">
-                        
                         <div className="bg-pattern p-absolute w-100"></div>
                         <AnimatedText className="title mb-30 dsn-fill title-orange">
-                            {about.title.split(' ').map((word, index) =>
-                                index === 3
-                                    ? <React.Fragment key={index}><br />{word.toUpperCase()}</React.Fragment>
-                                    : ` ${word}`
+                            {about.title.split(' ').map((word, index, array) =>
+                                index === 3 ? (
+                                    <React.Fragment key={index}>
+                                    <br />{word.toUpperCase()}
+                                    </React.Fragment>
+                                ) : (
+                                    `${index === 0 ? '' : ' '}${word}`
+                                )
                             )}
                         </AnimatedText>
                         <div className="dsn-btn dsn-btn-shape mt-30 d-flex">
@@ -102,11 +105,9 @@ const About = () => {
                     </div>
 
                     <div className="box-video dsn-up v-dark-head">
-                        <div
-                            className="box-img h-100 w-100 p-absolute top-0 right-0 dsn-hero-parallax-img before-z-index"
+                        <div className="box-img h-100 w-100 p-absolute top-0 right-0 dsn-hero-parallax-img before-z-index"
                             data-overlay="5"
-                            style={{ padding: "10px 0", background: '#3e3e3e' }}
-                        >
+                            style={{ padding: "10px 0", background: '#3e3e3e' }}>
                             {about.third_container_photo && (
                                 <img
                                     className="cover-bg-img"

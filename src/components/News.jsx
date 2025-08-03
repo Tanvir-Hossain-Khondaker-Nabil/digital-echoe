@@ -21,7 +21,8 @@ const News = () => {
   return (
     <section className="next-page v-dark bg-color section-padding">
       <div className="container">
-        <div className="tob-box d-flex justify-content-between align-items-end border-bottom pb-50 mb-50">
+        <div className="tob-box d-flex justify-content-between align-items-end border-bottom pb-50 mb-50"
+        style={{gap:"25px"}}>
           <h2 className="title text-upper">
             {echoData.title.split(" ").map((word, i) => (
               <React.Fragment key={i}>

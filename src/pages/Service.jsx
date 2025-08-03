@@ -90,10 +90,7 @@ export default function Service() {
 
     if (marketingLoading || techLoading || academyLoading) {
         return (
-            <div className="main-root">
-                <div className="container text-center py-5">
-                    <p>Loading services...</p>
-                </div>
+            <div  style={{height:"100vh"}}>
             </div>
         );
     }

@@ -31,10 +31,7 @@ export default function Band() {
 
     if (loading) {
         return (
-            <div className="main-root">
-                <div className="container text-center py-5">
-                    <p></p>
-                </div>
+            <div style={{height:"100vh"}}>
             </div>
         );
     }
@@ -69,9 +66,9 @@ export default function Band() {
                             translate: "none",
                             visibility: "inherit",
                         }}>
-                        <div className="p-relative d-flex align-items-center w-100  h-100 ">
+                        <div className="p-relative d-flex align-items-center w-100 h-100">
                             <div className="box-content z-index-1">
-                                <h1 className="title-lg text-upper">Banding</h1>
+                                <h1 className="title-lg text-upper">Portfolio</h1>
                                 <div className="contact-links w-50 mt-20">
                                     <p>
                                         My creative spirit comes alive in the digital realm. With nimble

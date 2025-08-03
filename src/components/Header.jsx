@@ -24,7 +24,7 @@ const Header = () => {
     fetchSliderData();
   }, []);
 
-  if (loading) return <div></div>;
+  if (loading) return <div style={{height:"100vh"}}></div>;
   if (error) return <div>Error: {error}</div>;
   if (!sliderData) return <div>No slider data available</div>;
 

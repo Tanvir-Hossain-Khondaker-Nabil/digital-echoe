@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <>
 
-      <header id="site_menu_header" className="site-header flex-direction-column" style={{ zIndex: 9999999, opacity: 1,  }}>
+      <header id="site_menu_header" className="site-header flex-direction-column" style={{ zIndex: 9999999, opacity: '1!important',  }}>
         <div className="main-logo d-flex align-items-center justify-content-between w-100">
           <a
             

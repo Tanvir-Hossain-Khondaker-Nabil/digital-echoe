@@ -26,10 +26,7 @@ export default function AboutUs() {
 
   if (loading) {
     return (
-      <div className="main-root">
-        <div className="container text-center py-5">
-          <p></p>
-        </div>
+      <div style={{height:"100vh"}}>
       </div>
     );
   }
