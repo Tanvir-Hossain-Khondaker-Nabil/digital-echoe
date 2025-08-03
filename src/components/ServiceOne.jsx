@@ -8,7 +8,7 @@ const ServiceOne = () => {
   useEffect(() => {
     const fetchServiceData = async () => {
       try {
-        const response = await fetch("http://digitalechos.test/api/service_process");
+        const response = await fetch("https://dev.digital-echoes.binary-group.com/admin/api/service_process");
         if (!response.ok) {
           throw new Error("Failed to fetch service data");
         }

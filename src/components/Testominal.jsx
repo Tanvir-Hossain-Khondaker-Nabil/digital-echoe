@@ -1,58 +1,88 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import AnimatedText from './AnimatedTextTo';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-cards';
 
-const Testominal = () => {
-    return (
-        <>
+const Testimonial = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch('https://dev.digital-echoes.binary-group.com/admin/api/testimonials');
+        const data = await response.json();
+        setTestimonials(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+        setLoading(false);
+      }
+    };
 
-<section
-      className="dsn-testimonials testimonials-small full-testimonials section-margin dsn-swiper"
-      data-dsn-option={{
-        spaceBetween: 30,
-        centeredSlides: false,
-        direction: "horizontal",
-        autoHeight: false,
-        slideToClickedSlide: false,
-        grabCursor: true,
-        mousewheel: false,
-        loop: true,
-        parallax: false,
-        slidesPerGroup: 1,
-        slidesPerView: 2,
-        speed: 1000,
-        effect: "card",
-      }}
+    fetchTestimonials();
+  }, []);
+
+  if (loading) {
+    return <div className="container text-center py-5"></div>;
+  }
+
+  return (
+    <section
+      className="dsn-testimonials testimonials-small full-testimonials section-margin"
     >
       <div className="container">
-        <div className="section-title dsn-fill d-flex flex-column mb-70">
-          <span className="sub-heading mb-5">testimonials</span>
-          <h2 className="title">What People Are Saying</h2>
-          <p className="mt-20">
-            Consumers today rely heavily on digital <br />
-            means to research products. We research a brand of bldend
-          </p>
+        <div className="section-title dsn-fill mb-70 d-flex flex-column">
+          <AnimatedText className="sub-heading title-orange">
+            testimonials
+          </AnimatedText>
+          <AnimatedText className="title title-orange">
+            What People Are Saying
+          </AnimatedText>
         </div>
         <div className="testimonials-inner d-flex over-hidden">
-          <div className="swiper swiper-container">
-            <div className="swiper-wrapper">
-              {[1, 2, 3, 4].map((item) => (
-                <div
-                  key={item}
-                  className="swiper-slide testimonal-item background-section has-border-radius d-flex flex-column align-items-center"
-                >
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={false}
+            direction="horizontal"
+            autoHeight={false}
+            slideToClickedSlide={false}
+            grabCursor={true}
+            mousewheel={false}
+            loop={true}
+            parallax={false}
+            slidesPerGroup={1}
+            speed={1000}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              992: {
+                slidesPerView: 3,
+              }
+            }}
+          >
+            {testimonials.map((testimonial) => (
+              <SwiperSlide key={testimonial.id}>
+                <div className="testimonal-item background-section has-border-radius d-flex flex-column align-items-center"
+                  style={{ background: "#171717" }}>
                   <div className="content">
                     <div className="rating">
                       <h3 className="heading">
-                        4.9
+                        {testimonial.rate}
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                           <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
                         </svg>
                       </h3>
-                      <p className="text-upper">out of 5 stars</p>
+                      <p className="text-upper" style={{ color: "#d3d4d4" }}>out of 5 stars</p>
                     </div>
 
-                    <p className="title-block mt-50 text-upper">
-                      We full service digital agency that build’s fascinating users experiences...
+                    <p className="text-white title-block mt-50 text-upper" style={{ color: "#d3d4d4" }}>
+                      {testimonial.description}
                     </p>
 
                     <div className="quote mt-30">
@@ -63,10 +93,18 @@ const Testominal = () => {
                     </div>
                   </div>
 
-                  <div className="box-authoer w-100 v-light background-main p-20">
+                  <div className="box-authoer w-100 v-light p-20" style={{ background: "white" }}>
                     <div className="authoer d-flex">
                       <div className="img">
-                        <img className="cover-bg-img" src="/img/team/1.jpg" alt="" />
+                        <img 
+                          className="cover-bg-img" 
+                          src={`https://dev.digital-echoes.binary-group.com/admin/${testimonial.photo}`} 
+                          alt={testimonial.name} 
+                          onError={(e) => {
+                            e.target.onerror = null; 
+                            e.target.src = "/img/team/1.jpg";
+                          }}
+                        />
                       </div>
 
                       <svg width="26" height="19" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,22 +114,20 @@ const Testominal = () => {
                         />
                       </svg>
 
-                      <div className="text background-section">
-                        <h5>MTL Graphic</h5>
-                        <span>Envato User</span>
+                      <div className="text" style={{ background: "#d3d4d4" }}>
+                        <h5>{testimonial.position}</h5>
+                        <span>{testimonial.name}</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
-            
-        </>
-    );
+  );
 };
 
-export default Testominal;
+export default Testimonial;

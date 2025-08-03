@@ -3,8 +3,8 @@ import Header from './Header';
 import About from './About';
 import Navbar from './Navbar';
 import ServiceOne from './ServiceOne';
-import Award from './Award';
 import Testominal from './Testominal';
+import Award from './Award';
 import Team from './Team';
 import Blog from './Blog';
 import Footer from './Footer';
@@ -42,6 +42,7 @@ const Home = () => {
                     <div id="page_wrapper" className="wrapper">
                         <About />
                         <ServiceOne />
+                        <Testominal/>
                         <Award />
                         <Team />
                         <Blog />
