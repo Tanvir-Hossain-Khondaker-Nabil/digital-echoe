@@ -97,7 +97,7 @@ export default function Band() {
                                 </span>
                             </div>
                             <div className="social-box d-flex align-items-center">
-                                <ul className="dsn-socials box-social">
+                                {/* <ul className="dsn-socials box-social">
                                     <li>
                                         <a className="background-main" href="#0" target="_blank">
                                             <i aria-hidden="true" className="fab fa-facebook-f" />{" "}
@@ -116,7 +116,7 @@ export default function Band() {
                                             <span>TW</span>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                     </div>
