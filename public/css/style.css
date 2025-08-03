@@ -744,8 +744,8 @@ dsn-bg-pattern bg-square
 }
 @media only screen and (max-width: 575px) {
   .title-lg {
-    font-size: 45px;
-    line-height: 65px;
+    font-size: 45px !important;
+    line-height: 65px !important;
   }
 }
 
@@ -7624,4 +7624,9 @@ footer{
   .dsn-posts .h-350 {
     height: 300px !important;
   }
+
+  .title-lg {
+  font-size: 45px !important;
+  line-height: 50px!important;
+}
 }

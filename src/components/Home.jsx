@@ -32,8 +32,6 @@ const Home = () => {
 
     return (
         <>
-        <SmoothScroll>
-            <ParallaxProvider>
                 <main id="main_root"  className="main-root">
                     <FadeUpSection>
                         <Navbar />
@@ -50,8 +48,6 @@ const Home = () => {
                     </div>
                     <Footer />
                 </main >
-            </ParallaxProvider>
-            </SmoothScroll>
         </>
     );
 };

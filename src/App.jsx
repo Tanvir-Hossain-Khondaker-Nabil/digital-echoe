@@ -12,28 +12,28 @@ import Band from "./pages/Band";
 import Home from "./components/Home";
 
 function App() {
-  useEffect(() => {
-    const scripts = [
-      "/js/jquery-3.7.1.min.js",
-      "/js/plugins.min.js",
-      "/js/plugins/dsn-grid.min.js",
-      "/js/custom.js",
-    ];
+  // useEffect(() => {
+  //   const scripts = [
+  //     "/js/jquery-3.7.1.min.js",
+  //     "/js/plugins.min.js",
+  //     "/js/plugins/dsn-grid.min.js",
+  //     "/js/custom.js",
+  //   ];
 
-    const scriptElements = scripts.map((src) => {
-      const s = document.createElement("script");
-      s.src = window.location.origin + src;
-      s.async = true;
-      document.body.appendChild(s);
-      return s;
-    });
+  //   const scriptElements = scripts.map((src) => {
+  //     const s = document.createElement("script");
+  //     s.src = window.location.origin + src;
+  //     s.async = true;
+  //     document.body.appendChild(s);
+  //     return s;
+  //   });
 
-    return () => {
-      scriptElements.forEach((script) => {
-        document.body.removeChild(script);
-      });
-    };
-  }, []);
+  //   return () => {
+  //     scriptElements.forEach((script) => {
+  //       document.body.removeChild(script);
+  //     });
+  //   };
+  // }, []);
 
   
 
